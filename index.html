@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenora Elite SpaceCard Template</title>
+    <title>Elite SpaceCard 3.0</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
@@ -423,44 +423,12 @@
             box-shadow: 0 0 15px var(--light-neon-glow);
         }
         /* Watermark */
-        .footer-branding {
+        .card-footer-watermark {
             margin-top: 2rem; /* Spacing below the card */
             text-align: center;
             padding-bottom: 1rem; /* Ensure some space at the very bottom */
-            font-size: 0.8rem; /* Smaller font for general footer text */
-            color: #ccc;
+            z-index: 1; /* Below the card */
         }
-
-        .footer-branding a {
-            color: #60a5fa; /* Blue color for links */
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-branding a:hover {
-            color: #3b82f6; /* Darker blue on hover */
-        }
-
-        /* Swipe Instructions */
-        .swipe-instructions {
-            margin-top: 1rem;
-            font-size: 1.1rem; /* Slightly larger */
-            color: #60a5fa; /* Blue color */
-            text-align: center;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 0.75rem;
-            background: rgba(96, 165, 250, 0.1); /* Subtle blue background */
-            border: 1px solid rgba(96, 165, 250, 0.3);
-            box-shadow: 0 0 10px rgba(96, 165, 250, 0.2);
-        }
-        body.light-theme .swipe-instructions {
-            color: #3b82f6; /* Darker blue for light theme */
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
-        }
-
         /* About Me Section specific styles */
         #aboutSection {
             background: var(--dark-card-bg); /* Use card background for consistency */
@@ -468,16 +436,8 @@
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-radius: 2rem; /* Match card border-radius */
             text-align: left; /* Align text within about section */
-            position: absolute; /* Occupy the full card space */
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            /* Flex properties applied in HTML */
+            /* Ensure content within is scrollable */
         }
         #aboutSection.show {
             opacity: 1;
@@ -513,11 +473,10 @@
             <div id="lottie-background"></div>
             <div class="flex flex-col items-center gap-2">
                 <img src="https://i.ibb.co/3yfW4hNX/Untitled-design-19-photoaidcom-cropped.png" alt="Profile Picture" class="profile-img" id="profileImage">
-                <h1 class="name" id="profileName">Zenora AI</h1>
-                <p class="tagline" id="profileTagline">Innovative AI Solutions | Web Technologies</p>
+                <h1 class="name" id="profileName">ZENORA</h1>
+                <p class="tagline" id="profileTagline">Visionary Founder | AI Pioneer</p>
                 <div class="micro-stats flex justify-center gap-2">
-                    <!-- Micro stats will be dynamically inserted here by JavaScript -->
-                </div>
+                    </div>
             </div>
             <div class="flex flex-col items-center gap-2 w-full flex-grow">
                 <div class="contact-info text-center">
@@ -525,8 +484,7 @@
                     <p class="text-lg mt-2"><i class="fas fa-envelope mr-2"></i> <span id="emailAddress" class="cursor-pointer hover:underline"></span></p>
                 </div>
                 <div class="social-icons flex gap-6 text-3xl mt-2">
-                    <!-- Social icons will be dynamically inserted here by JavaScript -->
-                </div>
+                    </div>
                 <div class="action-buttons flex flex-wrap justify-center gap-4 w-full px-4 mt-2">
                     <button class="action-button" id="addToContacts"><i class="fas fa-address-book"></i> Add to Contacts</button>
                     <button class="action-button" id="shareCard"><i class="fas fa-share-alt"></i> Share Card</button>
@@ -534,85 +492,83 @@
             </div>
         </div>
         <div class="card card-back" id="cardBack">
-            <h2 class="text-3xl font-bold mb-6 mt-4">Connect with Zenora!</h2>
-            <img src="https://i.ibb.co/j9HXgSHp/logo-img.png" alt="Zenora AI Logo" class="back-profile-img">
+            <h2 class="text-3xl font-bold mb-6 mt-4">Connect with me!</h2>
+            <img src="https://i.ibb.co/rXyYzQW/ZENORA-img.png" alt="ZENORA" class="back-profile-img">
             <div class="flex flex-col items-center gap-4 mt-6" id="backMainContent">
-                <button class="action-button" id="aboutMeButton"><i class="fas fa-info-circle"></i> About Us</button>
+                <button class="action-button" id="aboutMeButton"><i class="fas fa-info-circle"></i> About Me</button>
                 <button class="action-button" id="copyEmailBack"><i class="fas fa-envelope"></i> Copy Email</button>
                 <button class="action-button" id="copyPhoneBack"><i class="fas fa-phone"></i> Copy Phone</button>
                 <div class="profile-mode-switcher flex flex-col items-center gap-3 mt-4">
                     <p class="text-sm text-gray-400">Switch Mode:</p>
                     <div class="flex flex-wrap justify-center gap-2">
-                        <button class="action-button text-sm px-3 py-1.5" data-mode="Founder">Founder (Template)</button>
-                        <button class="action-button text-sm px-3 py-1.5" data-mode="Carrywings Logistics">Logistics (Template)</button>
-                        <button class="action-button text-sm px-3 py-1.5" data-mode="Carrywings Technologies">Technology (Template)</button>
+                        <button class="action-button text-sm px-3 py-1.5" data-mode="Founder">Founder</button>
+                        <button class="action-button text-sm px-3 py-1.5" data-mode="ZENORA">zenora Logistics</button>
+                        <button class="action-button text-sm px-3 py-1.5" data-mode="Athlete">zenora Technologies</button>
                     </div>
                 </div>
             </div>
-            <!-- About Me Section -->
             <div id="aboutSection" class="absolute inset-0 flex flex-col justify-between p-6 opacity-0 pointer-events-none transition-opacity duration-300">
                 <button id="backToMainBack" class="absolute top-4 left-4 text-xl text-gray-300 hover:text-white focus:outline-none z-30">
                     <i class="fas fa-arrow-left mr-2"></i> Back
                 </button>
-                <h3 class="text-2xl font-bold text-center mb-4 mt-12">About Zenora AI</h3>
+                <h3 class="text-2xl font-bold text-center mb-4 mt-12">About ZENORA</h3>
                 <p class="text-base text-gray-300 text-center flex-grow overflow-y-auto custom-scrollbar leading-relaxed">
-                    At Zenora AI, we specialize in crafting intelligent solutions that transform digital experiences. Our expertise spans innovative AI development, smart personal assistant integration, and building cutting-edge web applications. We are committed to delivering custom, user-centric technologies designed to elevate efficiency and engagement for our clients, always prioritizing seamless user experiences.
+                    At Zenora AI, we believe the future is built, not predicted. This vision is the hard work of our founder, Rajith Raaj — a student entrepreneur, relentless creator, and a dreamer.
+
+Rajith's journey began as a curious student who loved solving real problems with code, slowly turning that passion into purpose. <br> He didn't come from big resources or fancy offices — just a strong will to create something meaningful with what he had. His goal: ensure high-end tech isn't locked behind corporate walls, but made available to everyone.
+
+Whether you're a student, a doctor, or a working professional, our mission is to give everyone access to tech that feels top-class. With roots in engineering and real-world experience working with clients across diverse industries, Rajith combines practical insight with futuristic thinking.
                 </p>
-            </div>
+                </div>
         </div>
     </div>
-    <!-- Watermark moved outside the card -->
-    <div class="footer-branding">
-        <p>Elite SpaceCard 3.0</p>
-        <p><a href="https://zenora-ai.vercel.app/" target="_blank" rel="noopener noreferrer">ZENORA AI © All Rights Reserved</a></p>
-    </div>
-    <div class="swipe-instructions">
-        Swipe left or right to flip the card!
-    </div>
+    <p class="text-xs text-gray-500 card-footer-watermark">
+        Elite SpaceCard 3.0 | <a href="https://zenora-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="hover:underline">ZENORA AI ©</a>
+    </p>
 
     <div id="toast" class="toast"></div>
     <script>
         // --- Configuration & Data ---
         const profileData = {
             Founder: {
-                name: "Zenora AI",
-                tagline: "Innovative AI Solutions | Web Technologies",
-                phoneNumber: "+1 (555) 123-4567", // Dummy
-                emailAddress: "info@zenora-ai.com", // Dummy
-                microStats: ["Innovative Solutions", "Cutting-Edge Tech", "User-Centric Design"], // Updated
+                name: "ZENORA (your name)",
+                tagline: "Visionary Founder | AI Pioneer",
+                phoneNumber: "+91 9840012345678", // Updated to the only number
+                emailAddress: "rajithraaj.r@gmail.com", // Updated to the only email
+                microStats: ["2 Companies", "Entrepreneur"], // Updated
                 social: {
-                    linkedin: "javascript:void(0);", // Dummy
-                    instagram: "https://www.instagram.com/zenora.ai?igsh=MWhtYmxrZmQzMDd2YQ==",
-                    whatsapp: "javascript:void(0);", // Dummy
-                    facebook: "javascript:void(0);" // Dummy
+                    linkedin: "https://linkedin.com/in/rajithraaj",
+                    instagram: "https://instagram.com/zenora.ai",
+                    whatsapp: "https://wa.me/?",
+                    facebook: "https://www.facebook.com/SpaceX"
                 }
             },
-            "Carrywings Logistics": { // Renamed for template context
-                name: "Zenora AI",
-                tagline: "Logistics Solutions by Zenora AI",
-                phoneNumber: "+1 (555) 123-4567", // Dummy
-                emailAddress: "logistics@zenora-ai.com", // Dummy
-                microStats: ["Global Integration", "Supply Chain AI", "Automated Workflows"], // Template-specific
+            "zenora": {
+                name: "Rajith",
+                tagline: "student",
+                phoneNumber: "+91 984001234578", // Updated to the only number
+                emailAddress: "rajithraaj.r@.com", // Updated to the only email
+                microStats: ["2 Companies", "Entrepreneur", "Student", "tech Enthusiast"], // Updated with new and specific stats
                 social: {
-                    website: "javascript:void(0);", // Dummy
-                    linkedin: "javascript:void(0);", // Dummy
-                    whatsapp: "javascript:void(0);", // Dummy
-                    facebook: "javascript:void(0);", // Dummy
-                    instagram: "https://www.instagram.com/zenora.ai?igsh=MWhtYmxrZmQzMDd2YQ=="
+                    website: "https://rajithraaj.r.com/",
+                    linkedin: "https://linkedin.com/in/rajithraaj",
+                    whatsapp: "https://wa.link/d13a9v",
+                    facebook: "https://www.facebook.com/SpaceX",
+                    instagram: "https://www.instagram.com/zenora.ai/"
                 }
             },
-            "Carrywings Technologies": { // Renamed for template context
-                name: "Zenora AI",
-                tagline: "Technology Development by Zenora AI",
-                phoneNumber: "+1 (555) 123-4567", // Dummy
-                emailAddress: "tech@zenora-ai.com", // Dummy
-                microStats: ["Software Development", "Custom AI Models", "Scalable Platforms"], // Template-specific
+            "athlete": {
+                name: "Rajith",
+                tagline: "Entrapreneur, ZENORA | Elite Athlete",
+                phoneNumber: "+91 9840012345678", // Updated to the only number
+                emailAddress: "rajithraaj.r@.com", // Updated to the only email
+                microStats: ["2 Companies", "Entrepreneur", "AI Chatbot Development", "Website Solutions", "Innovation"], // Updated with new and specific stats
                 social: {
-                    website: "javascript:void(0);", // Dummy
-                    linkedin: "javascript:void(0);", // Dummy
-                    whatsapp: "javascript:void(0);", // Dummy
-                    facebook: "javascript:void(0);", // Dummy
-                    instagram: "https://www.instagram.com/zenora.ai?igsh=MWhtYmxrZmQzMDd2YQ=="
+                    website: "https://zenora-ai.vercel.app/",
+                    linkedin: "https://linkedin.com/in/rajithraaj",
+                    whatsapp: "https://wa.link/d13a9v",
+                    facebook: "https://www.facebook.com/SpaceX",
+                    instagram: "https://www.instagram.com/zenora.ai/"
                 }
             }
         };
@@ -704,7 +660,7 @@
                 socialIconsContainer.innerHTML += `
                     <a href="${data.social.facebook}" target="_blank" rel="noopener noreferrer" class="relative group">
                         <i class="fab fa-facebook"></i>
-                        <span class="tooltip absolute top-full left-1/2 -translate-x-1/2 mt-2 group-hover:opacity-100 group-hover:translate-y-0">Facebook (Dummy)</span>
+                        <span class="tooltip absolute top-full left-1/2 -translate-x-1/2 mt-2 group-hover:opacity-100 group-hover:translate-y-0">Facebook</span>
                     </a>
                 `;
             }
@@ -720,7 +676,7 @@
                 socialIconsContainer.innerHTML += `
                     <a href="${data.social.linkedin}" target="_blank" rel="noopener noreferrer" class="relative group">
                         <i class="fab fa-linkedin"></i>
-                        <span class="tooltip absolute top-full left-1/2 -translate-x-1/2 mt-2 group-hover:opacity-100 group-hover:translate-y-0">LinkedIn (Dummy)</span>
+                        <span class="tooltip absolute top-full left-1/2 -translate-x-1/2 mt-2 group-hover:opacity-100 group-hover:translate-y-0">LinkedIn</span>
                     </a>
                 `;
             }
@@ -728,7 +684,7 @@
                 socialIconsContainer.innerHTML += `
                     <a href="${data.social.whatsapp}" target="_blank" rel="noopener noreferrer" class="relative group">
                         <i class="fab fa-whatsapp"></i>
-                        <span class="tooltip absolute top-full left-1/2 -translate-x-1/2 mt-2 group-hover:opacity-100 group-hover:translate-y-0">WhatsApp (Dummy)</span>
+                        <span class="tooltip absolute top-full left-1/2 -translate-x-1/2 mt-2 group-hover:opacity-100 group-hover:translate-y-0">WhatsApp</span>
                     </a>
                 `;
             }
@@ -736,7 +692,7 @@
                 socialIconsContainer.innerHTML += `
                     <a href="${data.social.website}" target="_blank" rel="noopener noreferrer" class="relative group">
                         <i class="fas fa-globe"></i>
-                        <span class="tooltip absolute top-full left-1/2 -translate-x-1/2 mt-2 group-hover:opacity-100 group-hover:translate-y-0">Website (Dummy)</span>
+                        <span class="tooltip absolute top-full left-1/2 -translate-x-1/2 mt-2 group-hover:opacity-100 group-hover:translate-y-0">Website</span>
                     </a>
                 `;
             }
@@ -850,8 +806,7 @@
         });
         // Card Flip on Click/Tap
         cardContainer.addEventListener('click', (e) => {
-            // Prevent flipping if an interactive element is clicked
-            const interactiveElements = ['A', 'BUTTON', 'INPUT', 'SPAN', 'P', 'IMG', 'H1', 'H2', 'H3', 'DIV'];
+            const interactiveElements = ['A', 'BUTTON', 'INPUT', 'SPAN', 'P', 'IMG', 'H1', 'H2', 'H3', 'DIV']; // Added common interactive/content elements to prevent accidental flips
             if (e.target.closest(interactiveElements.map(tag => tag.toLowerCase()).join(','))) {
                 return;
             }
@@ -865,7 +820,7 @@
         cardContainer.addEventListener('touchend', (e) => {
             const touchEndX = e.changedTouches[0].clientX;
             const deltaX = touchEndX - touchStartX;
-            if (Math.abs(deltaX) > 75) { // Swipe threshold
+            if (Math.abs(deltaX) > 75) {
                 flipCard();
             }
         });
@@ -877,41 +832,39 @@
         // Save as VCF (Add to Contacts)
         addToContactsBtn.addEventListener('click', () => {
             const data = profileData[currentMode];
-            // Provide dummy data for VCF for template
             const vCardContent = `BEGIN:VCARD
 VERSION:3.0
-FN:Zenora AI
+FN:${data.name}
 TEL:${data.phoneNumber}
 EMAIL:${data.emailAddress}
-URL:https://zenora-ai.vercel.app/
 END:VCARD`;
             const blob = new Blob([vCardContent], { type: 'text/vcard' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `Zenora_AI_SpaceCard_Template.vcf`;
+            a.download = `${data.name.replace(/\s/g, '_')}_EliteSpaceCard.vcf`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            showToast("Dummy Contact Saved!");
+            showToast("Contact Saved!");
         });
         // Share Card (Web Share API / WhatsApp fallback)
         shareCardBtn.addEventListener('click', async () => {
             if (navigator.share) {
                 try {
                     await navigator.share({
-                        title: `Zenora AI SpaceCard Template`,
-                        text: `Check out this Zenora AI SpaceCard Template!`,
-                        url: window.location.href // Use current URL for sharing the template
+                        title: `Elite SpaceCard of ${profileData[currentMode].name}`,
+                        text: `Check out my Elite SpaceCard: ${profileData[currentMode].name} - ${profileData[currentMode].tagline}`,
+                        url: window.location.href
                     });
-                    showToast("Template Shared Successfully!");
+                    showToast("Card Shared Successfully!");
                 } catch (error) {
                     console.error('Error sharing:', error);
                     showToast("Share failed or cancelled.");
                 }
             } else {
-                const text = `Hey, check out this Zenora AI SpaceCard Template: ${window.location.href}`;
+                const text = `Hey, check out my Elite SpaceCard: ${window.location.href}`;
                 const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
                 window.open(whatsappUrl, '_blank');
                 showToast("Opening WhatsApp for sharing...");
